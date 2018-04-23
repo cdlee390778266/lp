@@ -1,67 +1,22 @@
 <template>
   <div>
-    <div class="cat_main">
+    <div class="cat_main" v-if="cats.length">
      <div class="cat">
-       <div class="cat_li">
-         <h4 class="c_1h4">绿色有机</h4>
+       <div class="cat_li" v-for="(cat, index) in cats">
+         <h4 :class="catIconClass(index+1)">{{cat.title}}</h4>
          <div class="cat_box">
-          <div class="cat_boxli1">
+          <div class="cat_boxli1" v-for="item in cat.data">
             <div class="cat_boxt">
-              肉禽蛋白1
+              {{item.title}}
             </div>
             <div class="cat_boxb">
-              <router-link to="/search">五花肉</router-link><span>/</span>
-              <router-link to="/search">老母鸡</router-link><span>/</span>
-              <router-link to="/search">肥肠</router-link><span>/</span>
-              <router-link to="/search">猪肘</router-link><span>/</span>
-              <router-link to="/search">草鸡</router-link><span>/</span>
-              <router-link to="/search">猪腿肉</router-link><span>/</span>
-              <router-link to="/search">牛腩</router-link><span>/</span>
-              <router-link to="/search">牛柳</router-link><span>/</span>
-              <router-link to="/search">精牛肉</router-link><span>/</span>
-              <router-link to="/search">里脊</router-link><span>/</span>
-            </div>
-          </div>
-          <div class="cat_boxli1">
-            <div class="cat_boxt">
-             田园时蔬
-           </div>
-           <div class="cat_boxb">
-            <router-link to="/search">香芹</router-link><span>/</span>
-            <router-link to="/search">菌菇</router-link><span>/</span>
-            <router-link to="/search">土豆</router-link><span>/</span>
-            <router-link to="/search">仔姜</router-link><span>/</span>
-            <router-link to="/search">莲藕</router-link><span>/</span>
-            <router-link to="/search">莲花白</router-link><span>/</span>
-            <router-link to="/search">秋葵</router-link><span>/</span>
-            <router-link to="/search">冬瓜</router-link><span>/</span>
-            <router-link to="/search">茄子</router-link><span>/</span>
-            <router-link to="/search">黄瓜</router-link><span>/</span>
-            <router-link to="/search">莴笋</router-link><span>/</span>
-            <router-link to="/search">洋葱</router-link><span>/</span>
-          </div>
-          </div>
-          <div class="cat_boxli2">
-            <div class="cat_boxt">
-              新鲜水果
-            </div>
-            <div class="cat_boxb">
-              <router-link to="/search">苹果</router-link><span>/</span>
-              <router-link to="/search">芒果</router-link><span>/</span>
-              <router-link to="/search">葡萄</router-link><span>/</span>
-              <router-link to="/search">靑提</router-link><span>/</span>
-              <router-link to="/search">水果玉米</router-link><span>/</span>
-              <router-link to="/search">火龙果</router-link><span>/</span>
-              <router-link to="/search">水蜜桃</router-link><span>/</span>
-              <router-link to="/search">红心柚</router-link><span>/</span>
-              <router-link to="/search">柠檬</router-link><span>/</span>
-              <router-link to="/search">奇异果</router-link><span>/</span>
-              <router-link to="/search">梨</router-link><span>/</span>
-              <router-link to="/search">西瓜</router-link><span>/</span>
+              <template v-for="sItem in item.data">
+                <router-link to="/search">{{sItem.text}}</router-link><span>/</span>
+              </template>
             </div>
           </div>
           <div class="cat_boxli2">
-           <img src="static/images/cat_goods.jpg" alt="" />
+           <img :src="cat.imgSrc" alt="" />
          </div>
        </div>
       </div>
@@ -70,13 +25,13 @@
 
   <div class="rel">
     <el-carousel trigger="click" height="532px" arrow="never">
-      <el-carousel-item v-for="banner in banners" :key="banner">
-        <a :href="banner.href"><img :src="'/static/images/flash_bg1.jpg'"></a>
+      <el-carousel-item v-for="(banner, index) in banners" :key="index">
+        <a :href="banner.href"><img :src="banner.bannerImg"></a>
       </el-carousel-item>
     </el-carousel>
     <div class="i_user" >
-      <p  class="borderb"><a href="login.html"><img src="static/images/user.png" height="138" width="95" alt="个人中心" /></a></p>
-      <p><a href="login.html"><img src="static/images/etp.png" height="137" width="95" alt="企业用户" /></a></p>
+      <p  class="borderb"><router-link to="/login"><img src="static/images/user.png" height="138" width="95" alt="个人中心" /></router-link></p>
+      <p><router-link to="/register"><img src="static/images/etp.png" height="137" width="95" alt="企业用户" /></router-link></p>
     </div>
   </div>
   <div class="notice">
@@ -192,9 +147,6 @@
           </div>
         </div>
       </div>
-      
-      
-
   </div>
   </div>
   </div>
@@ -460,21 +412,35 @@ export default {
   name: 'home',
   data () {
     return {
-      banners: [
-        {
-          bannerImg: '/assets/images/flash2.jpg',
-          href: ''
-        },
-        {
-          bannerImg: '/assets/images/flash2.jpg',
-          href: ''
-        },
-        {
-          bannerImg: '/assets/images/flash2.jpg',
-          href: ''
-        }
-      ]
+      cats: [],
+      banners: []
     }
+  },
+  methods: {
+    catIconClass: function(index) {
+      if(index) {
+        return 'c_' + index + 'h4';
+      }else {
+        return 'c_1h4';
+      }
+    }
+  },
+  created() {
+    this.$http.get('/static/data/home/cat.json')
+    .then(res => {  
+        this.cats = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })  
+
+    this.$http.get('/static/data/home/banner.json')
+    .then(res => {  
+        this.banners = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })  
   }
 }
 </script>

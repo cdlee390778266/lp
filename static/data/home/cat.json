@@ -1,0 +1,336 @@
+{
+	"status": 200,
+	"statusText": "成功",
+	"data": [
+        {
+          "title": "绿色有机",
+          "imgSrc": "static/images/cat_goods.jpg",
+          "data": [
+            {
+              "title": "肉禽蛋白1",
+              "data": [
+                { "text": "五花肉", "href": "/search"},
+                { "text": "老母鸡", "href": "/search"},
+                { "text": "肥肠", "href": "/search"},
+                { "text": "猪肘", "href": "/search"},
+                { "text": "草鸡", "href": "/search"},
+                { "text": "猪腿肉", "href": "/search"},
+                { "text": "牛腩", "href": "/search"},
+                { "text": "牛柳", "href": "/search"},
+                { "text": "精牛肉", "href": "/search"},
+                { "text": "里脊", "href": "/search"}
+              ]
+            },
+            {
+              "title": "田园时蔬",
+              "data": [
+                { "text": "香芹", "href": "/search"},
+                { "text": "菌菇", "href": "/search"},
+                { "text": "土豆", "href": "/search"},
+                { "text": "仔姜", "href": "/search"},
+                { "text": "莲藕", "href": "/search"},
+                { "text": "莲花白", "href": "/search"},
+                { "text": "秋葵", "href": "/search"},
+                { "text": "冬瓜", "href": "/search"},
+                { "text": "茄子", "href": "/search"},
+                { "text": "黄瓜", "href": "/search"},
+                { "text": "莴笋", "href": "/search"},
+                { "text": "洋葱", "href": "/search"}
+              ]
+            },
+            {
+              "title": "新鲜水果",
+              "data": [
+                { "text": "苹果", "href": "/search"},
+                { "text": "芒果", "href": "/search"},
+                { "text": "葡萄", "href": "/search"},
+                { "text": "靑提", "href": "/search"},
+                { "text": "水果玉米", "href": "/search"},
+                { "text": "火龙果", "href": "/search"},
+                { "text": "水蜜桃", "href": "/search"},
+                { "text": "红心柚", "href": "/search"},
+                { "text": "柠檬", "href": "/search"},
+                { "text": "奇异果", "href": "/search"},
+                { "text": "梨", "href": "/search"},
+                { "text": "西瓜", "href": "/search"}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "休闲食品",
+          "imgSrc": "static/images/cat_goods.jpg",
+          "data": [
+            {
+              "title": "肉禽蛋白1",
+              "data": [
+                { "text": "五花肉", "href": "/search"},
+                { "text": "老母鸡", "href": "/search"},
+                { "text": "肥肠", "href": "/search"},
+                { "text": "猪肘", "href": "/search"},
+                { "text": "草鸡", "href": "/search"},
+                { "text": "猪腿肉", "href": "/search"},
+                { "text": "牛腩", "href": "/search"},
+                { "text": "牛柳", "href": "/search"},
+                { "text": "精牛肉", "href": "/search"},
+                { "text": "里脊", "href": "/search"}
+              ]
+            },
+            {
+              "title": "田园时蔬",
+              "data": [
+                { "text": "香芹", "href": "/search"},
+                { "text": "菌菇", "href": "/search"},
+                { "text": "土豆", "href": "/search"},
+                { "text": "仔姜", "href": "/search"},
+                { "text": "莲藕", "href": "/search"},
+                { "text": "莲花白", "href": "/search"},
+                { "text": "秋葵", "href": "/search"},
+                { "text": "冬瓜", "href": "/search"},
+                { "text": "茄子", "href": "/search"},
+                { "text": "黄瓜", "href": "/search"},
+                { "text": "莴笋", "href": "/search"},
+                { "text": "洋葱", "href": "/search"}
+              ]
+            },
+            {
+              "title": "新鲜水果",
+              "data": [
+                { "text": "苹果", "href": "/search"},
+                { "text": "芒果", "href": "/search"},
+                { "text": "葡萄", "href": "/search"},
+                { "text": "靑提", "href": "/search"},
+                { "text": "水果玉米", "href": "/search"},
+                { "text": "火龙果", "href": "/search"},
+                { "text": "水蜜桃", "href": "/search"},
+                { "text": "红心柚", "href": "/search"},
+                { "text": "柠檬", "href": "/search"},
+                { "text": "奇异果", "href": "/search"},
+                { "text": "梨", "href": "/search"},
+                { "text": "西瓜", "href": "/search"}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "粮油干货",
+          "imgSrc": "static/images/cat_goods.jpg",
+          "data": [
+            {
+              "title": "肉禽蛋白1",
+              "data": [
+                { "text": "五花肉", "href": "/search"},
+                { "text": "老母鸡", "href": "/search"},
+                { "text": "肥肠", "href": "/search"},
+                { "text": "猪肘", "href": "/search"},
+                { "text": "草鸡", "href": "/search"},
+                { "text": "猪腿肉", "href": "/search"},
+                { "text": "牛腩", "href": "/search"},
+                { "text": "牛柳", "href": "/search"},
+                { "text": "精牛肉", "href": "/search"},
+                { "text": "里脊", "href": "/search"}
+              ]
+            },
+            {
+              "title": "田园时蔬",
+              "data": [
+                { "text": "香芹", "href": "/search"},
+                { "text": "菌菇", "href": "/search"},
+                { "text": "土豆", "href": "/search"},
+                { "text": "仔姜", "href": "/search"},
+                { "text": "莲藕", "href": "/search"},
+                { "text": "莲花白", "href": "/search"},
+                { "text": "秋葵", "href": "/search"},
+                { "text": "冬瓜", "href": "/search"},
+                { "text": "茄子", "href": "/search"},
+                { "text": "黄瓜", "href": "/search"},
+                { "text": "莴笋", "href": "/search"},
+                { "text": "洋葱", "href": "/search"}
+              ]
+            },
+            {
+              "title": "新鲜水果",
+              "data": [
+                { "text": "苹果", "href": "/search"},
+                { "text": "芒果", "href": "/search"},
+                { "text": "葡萄", "href": "/search"},
+                { "text": "靑提", "href": "/search"},
+                { "text": "水果玉米", "href": "/search"},
+                { "text": "火龙果", "href": "/search"},
+                { "text": "水蜜桃", "href": "/search"},
+                { "text": "红心柚", "href": "/search"},
+                { "text": "柠檬", "href": "/search"},
+                { "text": "奇异果", "href": "/search"},
+                { "text": "梨", "href": "/search"},
+                { "text": "西瓜", "href": "/search"}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "茶叶冲饮",
+          "imgSrc": "static/images/cat_goods.jpg",
+          "data": [
+            {
+              "title": "肉禽蛋白1",
+              "data": [
+                { "text": "五花肉", "href": "/search"},
+                { "text": "老母鸡", "href": "/search"},
+                { "text": "肥肠", "href": "/search"},
+                { "text": "猪肘", "href": "/search"},
+                { "text": "草鸡", "href": "/search"},
+                { "text": "猪腿肉", "href": "/search"},
+                { "text": "牛腩", "href": "/search"},
+                { "text": "牛柳", "href": "/search"},
+                { "text": "精牛肉", "href": "/search"},
+                { "text": "里脊", "href": "/search"}
+              ]
+            },
+            {
+              "title": "田园时蔬",
+              "data": [
+                { "text": "香芹", "href": "/search"},
+                { "text": "菌菇", "href": "/search"},
+                { "text": "土豆", "href": "/search"},
+                { "text": "仔姜", "href": "/search"},
+                { "text": "莲藕", "href": "/search"},
+                { "text": "莲花白", "href": "/search"},
+                { "text": "秋葵", "href": "/search"},
+                { "text": "冬瓜", "href": "/search"},
+                { "text": "茄子", "href": "/search"},
+                { "text": "黄瓜", "href": "/search"},
+                { "text": "莴笋", "href": "/search"},
+                { "text": "洋葱", "href": "/search"}
+              ]
+            },
+            {
+              "title": "新鲜水果",
+              "data": [
+                { "text": "苹果", "href": "/search"},
+                { "text": "芒果", "href": "/search"},
+                { "text": "葡萄", "href": "/search"},
+                { "text": "靑提", "href": "/search"},
+                { "text": "水果玉米", "href": "/search"},
+                { "text": "火龙果", "href": "/search"},
+                { "text": "水蜜桃", "href": "/search"},
+                { "text": "红心柚", "href": "/search"},
+                { "text": "柠檬", "href": "/search"},
+                { "text": "奇异果", "href": "/search"},
+                { "text": "梨", "href": "/search"},
+                { "text": "西瓜", "href": "/search"}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "生鲜食品",
+          "imgSrc": "static/images/cat_goods.jpg",
+          "data": [
+            {
+              "title": "肉禽蛋白1",
+              "data": [
+                { "text": "五花肉", "href": "/search"},
+                { "text": "老母鸡", "href": "/search"},
+                { "text": "肥肠", "href": "/search"},
+                { "text": "猪肘", "href": "/search"},
+                { "text": "草鸡", "href": "/search"},
+                { "text": "猪腿肉", "href": "/search"},
+                { "text": "牛腩", "href": "/search"},
+                { "text": "牛柳", "href": "/search"},
+                { "text": "精牛肉", "href": "/search"},
+                { "text": "里脊", "href": "/search"}
+              ]
+            },
+            {
+              "title": "田园时蔬",
+              "data": [
+                { "text": "香芹", "href": "/search"},
+                { "text": "菌菇", "href": "/search"},
+                { "text": "土豆", "href": "/search"},
+                { "text": "仔姜", "href": "/search"},
+                { "text": "莲藕", "href": "/search"},
+                { "text": "莲花白", "href": "/search"},
+                { "text": "秋葵", "href": "/search"},
+                { "text": "冬瓜", "href": "/search"},
+                { "text": "茄子", "href": "/search"},
+                { "text": "黄瓜", "href": "/search"},
+                { "text": "莴笋", "href": "/search"},
+                { "text": "洋葱", "href": "/search"}
+              ]
+            },
+            {
+              "title": "新鲜水果",
+              "data": [
+                { "text": "苹果", "href": "/search"},
+                { "text": "芒果", "href": "/search"},
+                { "text": "葡萄", "href": "/search"},
+                { "text": "靑提", "href": "/search"},
+                { "text": "水果玉米", "href": "/search"},
+                { "text": "火龙果", "href": "/search"},
+                { "text": "水蜜桃", "href": "/search"},
+                { "text": "红心柚", "href": "/search"},
+                { "text": "柠檬", "href": "/search"},
+                { "text": "奇异果", "href": "/search"},
+                { "text": "梨", "href": "/search"},
+                { "text": "西瓜", "href": "/search"}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "名族工艺",
+          "imgSrc": "static/images/cat_goods.jpg",
+          "data": [
+            {
+              "title": "肉禽蛋白1",
+              "data": [
+                { "text": "五花肉", "href": "/search"},
+                { "text": "老母鸡", "href": "/search"},
+                { "text": "肥肠", "href": "/search"},
+                { "text": "猪肘", "href": "/search"},
+                { "text": "草鸡", "href": "/search"},
+                { "text": "猪腿肉", "href": "/search"},
+                { "text": "牛腩", "href": "/search"},
+                { "text": "牛柳", "href": "/search"},
+                { "text": "精牛肉", "href": "/search"},
+                { "text": "里脊", "href": "/search"}
+              ]
+            },
+            {
+              "title": "田园时蔬",
+              "data": [
+                { "text": "香芹", "href": "/search"},
+                { "text": "菌菇", "href": "/search"},
+                { "text": "土豆", "href": "/search"},
+                { "text": "仔姜", "href": "/search"},
+                { "text": "莲藕", "href": "/search"},
+                { "text": "莲花白", "href": "/search"},
+                { "text": "秋葵", "href": "/search"},
+                { "text": "冬瓜", "href": "/search"},
+                { "text": "茄子", "href": "/search"},
+                { "text": "黄瓜", "href": "/search"},
+                { "text": "莴笋", "href": "/search"},
+                { "text": "洋葱", "href": "/search"}
+              ]
+            },
+            {
+              "title": "新鲜水果",
+              "data": [
+                { "text": "苹果", "href": "/search"},
+                { "text": "芒果", "href": "/search"},
+                { "text": "葡萄", "href": "/search"},
+                { "text": "靑提", "href": "/search"},
+                { "text": "水果玉米", "href": "/search"},
+                { "text": "火龙果", "href": "/search"},
+                { "text": "水蜜桃", "href": "/search"},
+                { "text": "红心柚", "href": "/search"},
+                { "text": "柠檬", "href": "/search"},
+                { "text": "奇异果", "href": "/search"},
+                { "text": "梨", "href": "/search"},
+                { "text": "西瓜", "href": "/search"}
+              ]
+            }
+          ]
+        }
+      ]
+}

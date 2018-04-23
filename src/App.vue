@@ -105,7 +105,7 @@ export default {
 	.head_b .nav li a{color: #333;}
 	.head_b .nav li a:hover{color:#B2CD27 }
 	.head_b form{width: 280px;height: 88px;float: right;padding-top: 40px; position:relative}
-	.head_b form ul{ position:absolute;top:74px;left:17px; width:44px; height:auto; overflow:hidden; border:2px solid #b2cd27;border-top:2px solid #fff; text-align:center; line-height:26px; background:#fff; padding-bottom:10px; display:none}
+	.head_b form ul{ position:absolute;top:74px;left:17px; width:44px; height:auto; overflow:hidden; border:2px solid #b2cd27;border-top:2px solid #fff; text-align:center; line-height:26px; background:#fff; padding-bottom:10px; display: block;}
 	.head_b form ul li{ cursor:pointer}
 	.head_b form select{display: none;}
 	.s_type{display: inline-block;width: 60px;height: 36px;background: url(/static/images/search_bg.png)  no-repeat;line-height: 36px;padding-left:20px;float: left; }
@@ -114,7 +114,7 @@ export default {
 	.s_txt{float: left;width: 140px;height: 36px;line-height: 36px;padding:0 10px;border:none;background: url(/static/images/search_bg.png) -70px center no-repeat;}
 	.s_smt{width:40px;height: 36px;background: url(/static/images/search_bg.png) -230px center no-repeat;float: left; padding: 0;border: none;margin: 0;cursor: pointer;}
 	.cat_main{width: 1300px;position: relative;margin: 0 auto}
-	.cat{position: absolute; top:-5px;left:0px;width: 270px;height: 532px;border-top: 5px solid #b2cd27;background: #fdbc27;z-index: 9999;}
+	.cat{position: absolute; top:-5px;left:0px;width: 270px;height: 532px;border-top: 5px solid #b2cd27;background: #fdbc27;z-index: 999;}
 	.cat_li h4{cursor: pointer; width: 100%;height: 89px;color: #fff;font-weight: normal;line-height: 89px;text-indent: 130px;font-size: 18px;}
 	.cat_li:hover h4{background-color: #b2cd27;}
 	.cat_li:hover .cat_box{display: block;}
@@ -405,6 +405,7 @@ export default {
 	.login_form{width: 500px;height: 320px;float: left;border: 1px solid #d6d6d6;padding-top: 20px;padding-bottom:60px; padding-left: 20px;padding-right: 20px;margin-left: 140px;}
 	.login  h1{font-size:18px;font-weight: normal;line-height: 40px; }
 	.login  h1 a{color: #666;margin-right: 20px;}
+	.login  h1 a.active {color: rgb(178, 205, 39);}
 	.login form p{margin-top: 40px;}
 	.login_text1{width: 479px;height: 45px;border: 1px solid #d6d6d6;padding: 0 10px;border-radius: 4px;color:#666 ;line-height: 45px;}
 	.login_text2,.login_text3{width: 420px;height: 45px;border: 1px solid #d6d6d6;padding: 0 10px;border-radius: 4px 0 0 4px;color:#666 ;line-height: 45px;border-right: none;display: inline-block;float: left;}
@@ -452,10 +453,12 @@ export default {
 	.s_box ul li p{margin-left: 5px;margin-right: 5px}
 	#s_left{position: absolute;top: 220px;left: 10px;cursor: pointer;}
 	#s_right{position: absolute;top: 220px;right: 10px;cursor: pointer;}
-	.ent_cmenu{width: 248px;height: 421px;border: 1px solid #d6d6d6;float: left;}
+	.ent_cmenu{width: 248px;height: 421px;border: 1px solid #d6d6d6;float: left;border-bottom: none;}
 	.ent_cmenu ul{width: 100%;height: auto;overflow: hidden;}
 	.ent_cmenu ul li{width: 100%;height: 59px;line-height: 59px;border-bottom: 1px solid #d6d6d6;text-align: center;}
-	.ent_cmenu ul li a{font-size: 16px;color:#1a1a1a;}
+	.ent_cmenu ul li a{font-size: 16px;color:#1a1a1a; display: block;}
+	.ent_cmenu ul li a.active {background: #fdb000; color: #fff}
+	.ent_cmenu ul li a.active:hover {background: #fdb000; color: #fff}
 	.ent_cmenu ul li a:hover{color: #fdb000}
 	.ent_box1,.ent_box3{width: 820px;height: 421px;border: 1px solid #d6d6d6;float: left;margin-left:20px;}
 	.ent_box1 form{padding: 80px 0;width: 420px;margin: 0 auto;line-height: 80px;color: #4c4c4c;font-size: 14px;padding-top: 40px;}
@@ -584,4 +587,5 @@ export default {
 	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
 	  opacity: 0;
 	}
+	input:focus {outline: none;}
 </style>

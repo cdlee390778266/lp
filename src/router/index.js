@@ -16,6 +16,14 @@ import Search from '@/components/search'
 import SearchCmp from '@/components/search_cmp'
 import SearchShop from '@/components/search_shop'
 import Cart from '@/components/cart'
+import UserTpl from '@/components/admin/user/usertpl'
+import User from '@/components/admin/user/user'
+import Zc from '@/components/admin/user/zc'
+import EnterpriseTpl from '@/components/admin/enterprise/enterprisetpl'
+import Notice from '@/components/admin/enterprise/notice'
+import Browsers from '@/components/admin/enterprise/browsers'
+import Purchasers from '@/components/admin/enterprise/purchasers'
+import Info from '@/components/admin/enterprise/info'
 
 Vue.use(Router)
 
@@ -105,6 +113,52 @@ export default new Router({
       path: '/cart',
       name: 'Cart',
       component: Cart
+    },
+    {
+      path: '/users',
+      name: 'UserTpl',
+      component: UserTpl,
+      children: [
+      	{
+      		path: 'user',
+      		component: User
+      	},
+      	{
+      		path: 'zc',
+      		component: Zc
+      	},
+      	{
+      		path: '**',
+      		component: User
+      	}
+      ]
+    },
+    {
+      path: '/enterprises',
+      name: 'EnterpriseTpl',
+      component: EnterpriseTpl,
+      children: [
+      	{
+      		path: 'notice',
+      		component: Notice
+      	},
+      	{
+      		path: 'browsers',
+      		component: Browsers
+      	},
+      	{
+      		path: 'purchasers',
+      		component: Purchasers
+      	},
+      	{
+      		path: 'info',
+      		component: Info
+      	},
+      	{
+      		path: '**',
+      		component: Notice
+      	}
+      ]
     }
   ]
 })

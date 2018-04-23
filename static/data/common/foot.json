@@ -1,0 +1,61 @@
+{
+	"status": 200,
+	"statusText": "成功",
+	"data": [
+      	{
+      		"title": "类目",
+      		"childs": [
+      			{
+      				"title": "新品订购",
+      				"href": ""
+      			},
+      			{
+      				"title": "特色货源",
+      				"href": ""
+      			},
+      			{
+      				"title": "资讯动态",
+      				"href": ""
+      			},
+      			{
+      				"title": "梁平学院",
+      				"href": ""
+      			}
+      		]
+      	},
+      	{
+      		"title": "商城信息",
+      		"childs": [
+      			{
+      				"title": "退货",
+      				"href": ""
+      			},
+      			{
+      				"title": "关于我们",
+      				"href": ""
+      			},
+      			{
+      				"title": "我们的职责",
+      				"href": ""
+      			}
+      		]
+      	},
+      	{
+      		"title": "帮助",
+      		"childs": [
+      			{
+      				"title": "客服服务",
+      				"href": ""
+      			},
+      			{
+      				"title": "我的梁平",
+      				"href": ""
+      			},
+      			{
+      				"title": "合法&隐私",
+      				"href": ""
+      			}
+      		]
+      	}
+      ]
+}

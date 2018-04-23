@@ -1,0 +1,18 @@
+{
+	"status": 200,
+	"statusText": "成功",
+	"data": [
+            {
+                  "bannerImg": "/static/images/flash2.jpg",
+                  "href": ""
+            },
+            {
+                  "bannerImg": "/static/images/flash2.jpg",
+                  "href": ""
+            },
+            {
+                  "bannerImg": "/static/images/flash2.jpg",
+                  "href": ""
+            }
+      ]
+}
