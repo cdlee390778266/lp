@@ -42,42 +42,22 @@
     </div>
   </div>
   <div class="main">
-    <div class="new">
+    <div class="new" v-if="recommend.leftAd">
       <div class="marcenter">
        <h1 class="title">新品推荐</h1>
        <div class="new_box mart20">
-         <div class="new_adl"><a href="goods.html"><img src="static/images/new_img1.jpg" height="438" width="240" alt="玩味农场"></a></div>
+         <div class="new_adl"><router-link :to="'/goods/'+recommend.leftAd.id"><img :src="recommend.leftAd.imgSrc" /></router-link></div>
          <div class="new_goods">
-           <dl>
-             <dt><a href="goods.html"><img src="static/images/new_img2.jpg" height="160" width="130" alt=""></a></dt>
-             <dd><a href="goods.html" class="f1">金典绿奇异果</a></dd>
-           </dl>
-           <dl>
-             <dt><a href="goods.html"><img src="static/images/new_img2.jpg" height="160" width="130" alt=""></a></dt>
-             <dd><a href="goods.html" class="f1">金典绿奇异果</a></dd>
-           </dl>
-           <dl>
-             <dt><a href="goods.html"><img src="static/images/new_img2.jpg" height="160" width="130" alt=""></a></dt>
-             <dd><a href="goods.html" class="f1">金典绿奇异果</a></dd>
-           </dl>
-           <dl>
-             <dt><a href="goods.html"><img src="static/images/new_img2.jpg" height="160" width="130" alt=""></a></dt>
-             <dd><a href="goods.html" class="f1">金典绿奇异果</a></dd>
-           </dl>
-           <dl>
-             <dt><a href="goods.html"><img src="static/images/new_img2.jpg" height="160" width="130" alt=""></a></dt>
-             <dd><a href="goods.html" class="f1">金典绿奇异果</a></dd>
-           </dl>
-           <dl>
-             <dt><a href="goods.html"><img src="static/images/new_img2.jpg" height="160" width="130" alt=""></a></dt>
-             <dd><a href="goods.html" class="f1">金典绿奇异果</a></dd>
+           <dl v-for="item in recommend.newGoods">
+             <dt><router-link :to="'/goods/'+item.id"><img :src="item.imgSrc" alt=""></router-link></dt>
+             <dd><router-link to="" class="f1">{{item.title}}</router-link></dd>
            </dl>
          </div>
-         <div class="new_adr"><a href="goods.html"><img src="static/images/new_img3.jpg" height="438" width="479" alt="玩味农场" /></a></div>
+         <div class="new_adr"><router-link :to="'/goods/'+recommend.rightAd.id"><img :src="recommend.rightAd.imgSrc" /></router-link></div>
        </div>
      </div>
    </div>
-   <div class="m_box1 mart40">
+   <div class="m_box1 mart40" v-if="pick.length">
     <div class="marcenter">
      <h1 class="title">农家乐</h1>
      <div class="bar1">
@@ -87,58 +67,13 @@
        <a href="" class="fright f2">更多></a>
      </div>
      <div class="goods_box">
-       <div class="goodsIterm">
+       <div class="goodsIterm" v-for="item in pick">
          <div class="gItt">
-           <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
+           <router-link :to="'/goods/'+item.id"><img :src="item.imgSrc" /></router-link>
          </div>
          <div class="gItb">
-          <p><a href="goods.html" class="f1 font14">重庆自驾游夏日清凉葡萄采摘</a></p>
-          <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-          <div class="g_show">
-            <div class="fleft">
-              <a href="javascript:void(0)"  class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
-            </div>
-            <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="goodsIterm">
-         <div class="gItt">
-           <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-         </div>
-         <div class="gItb">
-          <p><a href="goods.html" class="f1 font14">重庆自驾游夏日清凉葡萄采摘</a></p>
-          <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-          <div class="g_show">
-            <div class="fleft">
-              <a href="javascript:void(0)"  class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
-            </div>
-            <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="goodsIterm">
-         <div class="gItt">
-           <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-         </div>
-         <div class="gItb">
-          <p><a href="goods.html" class="f1 font14">重庆自驾游夏日清凉葡萄采摘</a></p>
-          <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-          <div class="g_show">
-            <div class="fleft">
-              <a href="javascript:void(0)"  class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
-            </div>
-            <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="goodsIterm">
-         <div class="gItt">
-           <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-         </div>
-         <div class="gItb">
-          <p><a href="goods.html" class="f1 font14">重庆自驾游夏日清凉葡萄采摘</a></p>
-          <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
+          <p><a href="goods.html" class="f1 font14">{{item.title}}</a></p>
+          <p><span class="f2">{{item.price}}</span> <span class="f3 through">{{item.priceN}}</span> /{{item.weight}}</p>
           <div class="g_show">
             <div class="fleft">
               <a href="javascript:void(0)"  class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
@@ -413,7 +348,9 @@ export default {
   data () {
     return {
       cats: [],
-      banners: []
+      banners: [],
+      recommend: {},
+      pick: []
     }
   },
   methods: {
@@ -426,6 +363,7 @@ export default {
     }
   },
   created() {
+
     this.$http.get('/static/data/home/cat.json')
     .then(res => {  
         this.cats = res.data.data;
@@ -440,7 +378,23 @@ export default {
     })  
     .catch(err => {  
         console.log(err)  
+    }) 
+
+    this.$http.get('/static/data/home/new.json')
+    .then(res => {  
+        this.recommend = res.data.data;
     })  
+    .catch(err => {  
+        console.log(err)  
+    })   
+
+    this.$http.get('/static/data/home/pick.json')
+    .then(res => {  
+        this.pick = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })   
   }
 }
 </script>

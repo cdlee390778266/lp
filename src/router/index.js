@@ -65,7 +65,7 @@ export default new Router({
       component: Flow
     },
     {
-      path: '/goods',
+      path: '/goods/:id',
       name: 'Goods',
       component: Goods
     },

@@ -1,0 +1,46 @@
+{
+	"status": 200,
+	"statusText": "成功",
+	"data": {
+            "leftAd": {
+                  "imgSrc": "static/images/new_img1.jpg",
+                  "id": 100
+            },
+            "newGoods": [
+                  {
+                        "imgSrc": "static/images/new_img2.jpg",
+                        "id": 55,
+                        "title": "金典绿奇异果"
+                  },
+                  {
+                        "imgSrc": "static/images/new_img2.jpg",
+                        "id": 55,
+                        "title": "金典绿奇异果"
+                  },
+                  {
+                        "imgSrc": "static/images/new_img2.jpg",
+                        "id": 55,
+                        "title": "金典绿奇异果"
+                  },
+                  {
+                        "imgSrc": "static/images/new_img2.jpg",
+                        "id": 55,
+                        "title": "金典绿奇异果"
+                  },
+                  {
+                        "imgSrc": "static/images/new_img2.jpg",
+                        "id": 55,
+                        "title": "金典绿奇异果"
+                  },
+                  {
+                        "imgSrc": "static/images/new_img2.jpg",
+                        "id": 55,
+                        "title": "金典绿奇异果"
+                  }
+            ],
+            "rightAd": {
+                  "imgSrc": "static/images/new_img3.jpg",
+                  "id": 100
+            }
+      }
+}
