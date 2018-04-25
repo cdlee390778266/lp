@@ -48,7 +48,7 @@
        <div class="new_box mart20">
          <div class="new_adl"><router-link :to="'/goods/'+recommend.leftAd.id"><img :src="recommend.leftAd.imgSrc" /></router-link></div>
          <div class="new_goods">
-           <dl v-for="item in recommend.newGoods">
+           <dl v-for="(item, index) in recommend.newGoods" v-if="index < 6">
              <dt><router-link :to="'/goods/'+item.id"><img :src="item.imgSrc" alt=""></router-link></dt>
              <dd><router-link to="" class="f1">{{item.title}}</router-link></dd>
            </dl>
@@ -67,7 +67,7 @@
        <a href="" class="fright f2">更多></a>
      </div>
      <div class="goods_box">
-       <div class="goodsIterm" v-for="item in pick">
+       <div class="goodsIterm" v-for="(item, index) in pick" v-if="index < 4">
          <div class="gItt">
            <router-link :to="'/goods/'+item.id"><img :src="item.imgSrc" /></router-link>
          </div>
