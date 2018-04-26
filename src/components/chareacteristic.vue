@@ -1,7 +1,7 @@
 <template>
   <div>
   	<el-carousel trigger="click" height="440">
-      <el-carousel-item v-for="item in [0, 1, 3, 3, 4, 5]">
+      <el-carousel-item v-for="(item, index) in [0, 1, 3, 3, 4, 5]" :key="index">
         <a ><img :src="'/static/images/te_flash.png'"></a>
       </el-carousel-item>
     </el-carousel>
