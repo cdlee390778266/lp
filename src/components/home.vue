@@ -76,7 +76,7 @@
           <p><span class="f2">{{item.price}}</span> <span class="f3 through">{{item.priceN}}</span> /{{item.weight}}</p>
           <div class="g_show">
             <div class="fleft">
-              <a href="javascript:void(0)"  class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
+              <a href="javascript:void(0)"  class="g_up" @click="add(item)">∧</a><span class="g_span">{{item.nums}}</span><a href="javascript:void(0)" class="g_down" @click="reduce(item)">∨</a>
             </div>
             <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
           </div>
@@ -187,115 +187,45 @@
        <a href="" class="fright f2">更多></a>
      </div>
      <div class="goods_box">
-      <div class="goodsIterm">
-   <div class="gItt">
-     <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-   </div>
-   <div class="gItb">
-    <p><a href="goods.html" class="f1">重庆自驾游夏日清凉葡萄采摘</a></p>
-    <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-    <div class="g_show">
-      <div class="fleft">
-        <a href="javascript:void(0)" class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
+      <div class="goodsIterm" v-for="item in garde">
+         <div class="gItt">
+           <router-link :to="'/goods/'+item.id"><img :src="item.imgSrc" /></router-link>
+         </div>
+         <div class="gItb">
+          <p><a href="goods.html" class="f1 font14">{{item.title}}</a></p>
+          <p><span class="f2">{{item.price}}</span> <span class="f3 through">{{item.priceN}}</span> /{{item.weight}}</p>
+          <div class="g_show">
+            <div class="fleft">
+              <a href="javascript:void(0)"  class="g_up" @click="add(item)">∧</a><span class="g_span">{{item.nums}}</span><a href="javascript:void(0)" class="g_down" @click="reduce(item)">∨</a>
+            </div>
+            <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
+          </div>
+        </div>
       </div>
-      <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
     </div>
-  </div>
-  </div>
-  <div class="goodsIterm">
-   <div class="gItt">
-     <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-   </div>
-   <div class="gItb">
-    <p><a href="goods.html" class="f1">重庆自驾游夏日清凉葡萄采摘</a></p>
-    <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-    <div class="g_show">
-      <div class="fleft">
-        <a href="javascript:void(0)" class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
-      </div>
-      <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
     </div>
-  </div>
-  </div>
-  <div class="goodsIterm">
-   <div class="gItt">
-     <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-   </div>
-   <div class="gItb">
-    <p><a href="goods.html" class="f1">重庆自驾游夏日清凉葡萄采摘</a></p>
-    <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-    <div class="g_show">
-      <div class="fleft">
-        <a href="javascript:void(0)" class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
-      </div>
-      <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
-    </div>
-  </div>
-  </div> 
-  <div class="goodsIterm">
-   <div class="gItt">
-     <a href="goods.html"><img src="static/images/goods.jpg" height="300" width="300" alt="" /></a>
-   </div>
-   <div class="gItb">
-    <p><a href="goods.html" class="f1">重庆自驾游夏日清凉葡萄采摘</a></p>
-    <p><span class="f2">￥30</span> <span class="f3 through">￥50</span> /500kg</p>
-    <div class="g_show">
-      <div class="fleft">
-        <a href="javascript:void(0)" class="g_up">∧</a><span class="g_span">1</span><a href="javascript:void(0)" class="g_down">∨</a>
-      </div>
-      <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
   </div>
   <div class="news">
     <div class="marcenter">
      <h1 class="title">资讯动态</h1>
      <div class="news_l">
       <h2>商务动态</h2>
-      <p><a href="" class="fright font14"> 更多 ></a></p>
+      <p><router-link to="/dynamic" class="fright font14"> 更多 ></router-link></p>
       <ul>
-        <li>
-          <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-          <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
+        <li v-for="(item, index) in business" v-if="index < 4">
+          <p class="font14 marb10"><span class="fright">{{item.date}}</span><router-link :to="'/dynamicDetail/'+item.id">{{item.title}}</router-link></p>
+          <p>{{item.dsc}}</p>
         </li>
-        <li>
-          <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-          <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-        </li>
-        <li>
-          <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-          <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-        </li>
-        <li style="border:none">
-          <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-          <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-        </li>
-
       </ul>
     </div>
     <div class="news_r">
      <h2>党的建设</h2>
-     <p><a href="" class="fright font14"> 更多 ></a></p>
+     <p><router-link to="/dynamic" class="fright font14"> 更多 ></router-link></p>
      <ul>
-      <li>
-        <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-        <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-      </li>
-      <li>
-        <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-        <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-      </li>
-      <li>
-        <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-        <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-      </li>
-      <li style="border:none">
-        <p class="font14 marb10"><span class="fright">8-13</span><a href="zixun_detail.html">梁平县商务局关于在2015年夏季消费促进月期间开展汽车惠民活动的通知</a></p>
-        <p>为贯彻落实好《重庆市人民政府关于进一步促进消费的意见》（渝府发【2015】31号）文件精神，积极应对当前经济和消费下行压力，切实抓好稳增长、促销费、惠民生工作。</p>
-      </li>
+      <li v-for="(item, index) in info" v-if="index < 4">
+          <p class="font14 marb10"><span class="fright">{{item.date}}</span><router-link :to="'/dynamicDetail/'+item.id">{{item.title}}</router-link></p>
+          <p>{{item.dsc}}</p>
+        </li>
     </ul>
   </div>
   </div>
@@ -314,26 +244,8 @@
   <div class="cmd">
     <div class="marcenter">
      <h1 class="title">企业推荐</h1>
-     <p>
-       <a href=""><img src="static/images/link_img1.jpg" height="73" width="192" alt="巴布豆"></a> 
-       <a href=""><img src="static/images/link_img2.jpg" height="73" width="192" alt="魔术师"></a>
-       <a href=""><img src="static/images/link_img3.jpg" height="73" width="192" alt="美味糕点"></a>
-       <a href=""><img src="static/images/link_img4.jpg" height="73" width="192" alt="完美食品"></a>
-       <a href=""><img  src="static/images/link_img5.jpg" height="49" width="207" alt="唇相思"></a>
-     </p>
-     <p>
-       <a href=""><img src="static/images/link_img1.jpg" height="73" width="192" alt="巴布豆"></a> 
-       <a href=""><img src="static/images/link_img2.jpg" height="73" width="192" alt="魔术师"></a>
-       <a href=""><img src="static/images/link_img3.jpg" height="73" width="192" alt="美味糕点"></a>
-       <a href=""><img src="static/images/link_img4.jpg" height="73" width="192" alt="完美食品"></a>
-       <a href=""><img  src="static/images/link_img5.jpg" height="49" width="207" alt="唇相思"></a>
-     </p>
-     <p>
-       <a href=""><img src="static/images/link_img1.jpg" height="73" width="192" alt="巴布豆"></a> 
-       <a href=""><img src="static/images/link_img2.jpg" height="73" width="192" alt="魔术师"></a>
-       <a href=""><img src="static/images/link_img3.jpg" height="73" width="192" alt="美味糕点"></a>
-       <a href=""><img src="static/images/link_img4.jpg" height="73" width="192" alt="完美食品"></a>
-       <a href=""><img  src="static/images/link_img5.jpg" height="49" width="207" alt="唇相思"></a>
+     <p class="left">
+       <a href="" v-for="link in friendLink"><img :src="link.imgSrc" :alt="link.alt"></a> 
      </p>
    </div>
   </div>
@@ -350,7 +262,11 @@ export default {
       cats: [],
       banners: [],
       recommend: {},
-      pick: []
+      pick: [],
+      garde: [],
+      business: [],
+      info: [],
+      friendLink: []
     }
   },
   methods: {
@@ -359,6 +275,14 @@ export default {
         return 'c_' + index + 'h4';
       }else {
         return 'c_1h4';
+      }
+    },
+    add: function(item) {
+      item.nums++;
+    },
+    reduce: function(item) {
+      if(item.nums > 1) {
+        item.nums--;
       }
     }
   },
@@ -395,6 +319,38 @@ export default {
     .catch(err => {  
         console.log(err)  
     })   
+
+    this.$http.get('/static/data/home/pick.json')
+    .then(res => {  
+        this.garde = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })   
+
+    this.$http.get('/static/data/home/business.json')
+    .then(res => {  
+        this.business = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })  
+
+    this.$http.get('/static/data/home/business.json')
+    .then(res => {  
+        this.info = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })  
+
+    this.$http.get('/static/data/home/friendLink.json')
+    .then(res => {  
+        this.friendLink = res.data.data;
+    })  
+    .catch(err => {  
+        console.log(err)  
+    })  
   }
 }
 </script>

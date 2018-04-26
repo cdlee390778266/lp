@@ -85,7 +85,7 @@ export default new Router({
       component: Dynamic
     },
     {
-      path: '/dynamicDetail',
+      path: '/dynamicDetail/:id',
       name: 'DynamicDetail',
       component: DynamicDetail
     },

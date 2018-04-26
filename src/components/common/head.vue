@@ -10,11 +10,11 @@
 	    <div class="head_b">
 	     <div class="logo"><router-link to="/home"><img src="/static/images/logo.png" height="75" width="202" alt="梁平" /></router-link></div>
 	     <ul class="nav">
-	       <li><router-link to="/home">首页<br/>Home</router-link></li>
-	       <li><router-link to="/news">新品快订<br/>News</router-link></li>
-	       <li><router-link to="/chareacteristic">特色货源<br/>Chareacteristic</router-link></li>
-	       <li><router-link to="/dynamic">资讯动态<br/>Dynamic</router-link></li>
-	       <li><router-link to="/institute">梁平学院<br/>Institute</router-link></li>
+	       <li><router-link to="/home" active-class="active">首页<br/>Home</router-link></li>
+	       <li><router-link to="/news" active-class="active">新品快订<br/>News</router-link></li>
+	       <li><router-link to="/chareacteristic" active-class="active">特色货源<br/>Chareacteristic</router-link></li>
+	       <li><router-link to="/dynamic" active-class="active">资讯动态<br/>Dynamic</router-link></li>
+	       <li><router-link to="/institute" active-class="active">梁平学院<br/>Institute</router-link></li>
 	     </ul>
 	     <form action="" method="">
 	       <div class="s_type" @click="slide">

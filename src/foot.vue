@@ -4,7 +4,7 @@
 	  <div class="help">
 	    <ul v-for="nav in footNav">
 	      <li class="fwrite font16 marb10">{{nav.title}}</li>
-	      <li v-for="navc in nav.childs"><a :href="navc.href">{{navc.title}}</a></li>
+	      <li v-for="navc in nav.childs"><router-link :to="'/dynamicDetail/'+nav.id">{{navc.title}}</router-link></li>
 	    </ul>
 	  </div>
 	  <div class="copy">

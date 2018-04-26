@@ -103,7 +103,7 @@ export default {
 	.head_b .nav{float: left;width: 750px;height: 100%;}
 	.head_b .nav li{width:20%;height: 100%;text-align: center;float: left;margin-top:40px;font-size: 16px; }
 	.head_b .nav li a{color: #333;}
-	.head_b .nav li a:hover{color:#B2CD27 }
+	.head_b .nav li a:hover, .head_b .nav li a.active{color:#B2CD27 }
 	.head_b form{width: 280px;height: 88px;float: right;padding-top: 40px; position:relative}
 	.head_b form ul{ position:absolute;top:74px;left:17px; width:44px; height:auto; overflow:hidden; border:2px solid #b2cd27;border-top:2px solid #fff; text-align:center; line-height:26px; background:#fff; padding-bottom:10px; display: block;}
 	.head_b form ul li{ cursor:pointer}
@@ -204,6 +204,7 @@ export default {
 	.news_l h2,.news_r h2{padding:0 20px;font-weight: normal;font-size: 16px;}
 	.news_l>p,.news_r>p{margin: 0 20px;line-height: 30px;border-bottom: 1px dashed #dadada;height: 30px; }
 	.news ul li{padding: 20px 0;border-bottom: 1px dashed  #dadada;line-height: 26px;}
+	.news ul li:last-child {border-bottom: none;}
 	.cmd{width: 100%;text-align: center;padding-bottom: 40px;background: #f5f5f5;padding-top: 20px;}
 	.cmd p img{margin: 20px;vertical-align: middle;}
 	.promise{width: 100%;height:382px;background: url(/static/images/promise_bg.png) no-repeat center;position: relative;}

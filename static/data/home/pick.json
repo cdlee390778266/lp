@@ -8,7 +8,8 @@
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
-                  "weight": "500kg"
+                  "weight": "500kg",
+                  "nums": 1
             },
             {
                   "imgSrc": "static/images/goods.jpg",
@@ -16,7 +17,8 @@
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
-                  "weight": "500kg"
+                  "weight": "500kg",
+                  "nums": 1
             },
             {
                   "imgSrc": "static/images/goods.jpg",
@@ -24,7 +26,8 @@
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
-                  "weight": "500kg"
+                  "weight": "500kg",
+                  "nums": 1
             },
             {
                   "imgSrc": "static/images/goods.jpg",
@@ -32,23 +35,8 @@
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
-                  "weight": "500kg"
-            },
-            {
-                  "imgSrc": "static/images/goods.jpg",
-                  "id": 66,
-                  "title": "重庆自驾游夏日清凉葡萄采摘",
-                  "price": "￥30",
-                  "priceN": "￥50",
-                  "weight": "500kg"
-            },
-            {
-                  "imgSrc": "static/images/goods.jpg",
-                  "id": 66,
-                  "title": "重庆自驾游夏日清凉葡萄采摘",
-                  "price": "￥30",
-                  "priceN": "￥50",
-                  "weight": "500kg"
+                  "weight": "500kg",
+                  "nums": 1
             }
       ]
 }
