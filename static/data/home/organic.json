@@ -1,0 +1,97 @@
+{
+	"status": 200,
+	"statusText": "成功",
+	"data": {
+            "hots": [
+                  {
+                        "id": 40,
+                        "title": "豌豆角",
+                        "dsc": "美味又可口",
+                        "imgSrc": "/static/images/org_goods1.jpg"
+                  },
+                  {
+                        "id": 41,
+                        "title": "豌豆角",
+                        "dsc": "美味又可口",
+                        "imgSrc": "/static/images/org_goods1.jpg"
+                  },
+                  {
+                        "id": 42,
+                        "title": "豌豆角",
+                        "dsc": "美味又可口",
+                        "imgSrc": "/static/images/org_goods1.jpg"
+                  },
+                  {
+                        "id": 43,
+                        "title": "豌豆角",
+                        "dsc": "美味又可口",
+                        "imgSrc": "/static/images/org_goods1.jpg"
+                  },
+                  {
+                        "id": 44,
+                        "title": "豌豆角",
+                        "dsc": "美味又可口",
+                        "imgSrc": "/static/images/org_goods1.jpg"
+                  }
+            ],
+            "navs": [
+                  {
+                        "title": "田园时蔬",
+                        "data": [
+                              {
+                                    "id": 16,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              },
+                              {
+                                    "id": 17,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              },
+                              {
+                                    "id": 18,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              },
+                              {
+                                    "id": 19,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              }
+                        ]
+                  },
+                  {
+                        "title": "肉禽蛋品",
+                        "data": [
+                              {
+                                    "id": 19,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              }
+                        ]
+                  },
+                  {
+                        "title": "新鲜水果",
+                        "data": [
+                              {
+                                    "id": 23,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              },
+                              {
+                                    "id": 24,
+                                    "title": "木耳菜",
+                                    "dsc": "叶子近似圆形，肥厚而黏滑",
+                                    "imgSrc": "/static/images/org_goods.jpg"
+                              }
+                        ]
+                  }
+            ]
+      }
+}

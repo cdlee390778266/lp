@@ -169,9 +169,9 @@ export default {
 	.new_adr{float: right;width: 479px;height: 100%;}
 	.m_box1{background:#f5f5f5;padding-top: 20px;}
 	.goods_box{padding: 20px 0;height:auto;overflow: hidden;}
-	.bar1{width: 100%;height: 40px;line-height: 40px;text-align: center;font-size: 16px;}
+	.bar1{width: 100%;line-height: 40px;text-align: center;font-size: 16px;}
 	.goodsIterm{width:320px;height: 440px;display: inline-block;border: 1px solid #F5F5F5;position: relative;}
-	.goodsIterm:hover{background: #fff;border: 1px solid #d6d6d6;}
+	.goodsIterm:hover{background: #fff;border: 1px solid #d6d6d6; transition: all .4s; transform: scale(1.1);position: relative; z-index: 1}
 	.goodsIterm .gItt{width: 300px;height: 300px;margin: 10px;}
 	.goodsIterm .gItt img:hover{opacity:0.9;filter:Alpha(opacity=90);}
 	.goodsIterm .gItb{line-height: 26px;margin: 0 15px;}
@@ -184,7 +184,7 @@ export default {
 	.organic{padding-top: 20px;}
 	.org_box{margin-top: 20px;}
 	.org_li{width: 33%;height:390px;float: left;}
-	.org_lit{width: 100%;height: 80px;padding-top: 40px;}
+	.org_lit{width: 100%;height: 80px;padding-top: 40px; text-align: left;}
 	.org_lit p{padding:0 20px;line-height: 30px;}
 	.org_lib{text-align: center;padding-top: 30px;}
 	.org_lib img:hover{opacity: 0.9;filter:Alpha(opacity=90);}
@@ -403,7 +403,7 @@ export default {
 
 	/*-------------------登录注册--------------------*/
 	.login{width: 100%;padding: 120px 0;height: auto;overflow: hidden;}
-	.login_form{width: 500px;height: 320px;float: left;border: 1px solid #d6d6d6;padding-top: 20px;padding-bottom:60px; padding-left: 20px;padding-right: 20px;margin-left: 140px;}
+	.login_form{width: 500px;height: 320px;float: left;border: 1px solid #d6d6d6;padding-top: 20px;padding-bottom:60px; padding-left: 20px;padding-right: 20px;margin-left: 140px; background: #fff}
 	.login  h1{font-size:18px;font-weight: normal;line-height: 40px; }
 	.login  h1 a{color: #666;margin-right: 20px;}
 	.login  h1 a.active {color: rgb(178, 205, 39);}
@@ -589,4 +589,12 @@ export default {
 	  opacity: 0;
 	}
 	input:focus {outline: none;}
+	.organic-tabs .el-tabs__item {font-weight: normal;font-size: 18px;width: 30%;}
+	.organic-tabs .el-tabs__nav {width: 100%;}
+	.organic-tabs .el-tabs__item.is-active, .organic-tabs .el-tabs__item.is-active:hover, .organic-tabs .el-tabs__item:hover {color: #B2CD27;}
+	.organic-tabs .el-tabs__nav-wrap::after {display: none;}
+	.organic-tabs .el-tabs__active-bar {display: none;}
+	.login_form form {margin-top: 40px;}
+	.login_form .el-button--primary {display: inline-block;background: #b2cd27;color: #fff;font-size: 18px;border: none;cursor: pointer;width: 160px;height: 50px;text-align: center;border-radius: 4px;}
+	.forget {color: #6b6b6b; text-decoration: underline;}
 </style>

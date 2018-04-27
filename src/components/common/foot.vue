@@ -24,7 +24,7 @@ export default {
     }
   },
   created() {
-    this.$http.get('/static/data/common/foot.json')
+    this.$utils.$http.get('/static/data/common/foot.json')
     .then(res => {  
         this.footNav = res.data.data;
     })  

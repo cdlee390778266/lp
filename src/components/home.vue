@@ -64,7 +64,7 @@
        <a href="" class="marr20 f1"><</a>
        <span>采摘</span>
        <a href="" class="marl20  f1">></a>
-       <a href="" class="fright f2">更多></a>
+       <router-link to="/news" class="fright f2">更多></router-link>
      </div>
      <div class="goods_box">
        <div class="goodsIterm" v-for="(item, index) in pick" v-if="index < 4">
@@ -78,7 +78,7 @@
             <div class="fleft">
               <a href="javascript:void(0)"  class="g_up" @click="add(item)">∧</a><span class="g_span">{{item.nums}}</span><a href="javascript:void(0)" class="g_down" @click="reduce(item)">∨</a>
             </div>
-            <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
+            <div class="fright"><a href="javascript:void(0);" class="greey_a1" @click="addCart(item)">加入购物车</a></div>
           </div>
         </div>
       </div>
@@ -89,89 +89,32 @@
     <div class="marcenter">
       <h1 class="title">绿色有机</h1>
       <div class="bar1">
-       <h2>田园时蔬</h2>
-       <h2>肉禽蛋品</h2>
-       <h2>新鲜水果</h2>
-       <a href="" class="fright f2">更多></a>
+        <el-tabs value="tab_0" class="organic-tabs">
+          <el-tab-pane :label="tab.title" :name="'tab_'+index" v-for="(tab, index) in organic.navs" :key="'organic_'+index">
+            <div class="org_box">
+              <div class="org_li" v-for="(org, org_index) in tab.data" v-if="org_index < 3">
+                <div class="org_lit">
+                  <p class="font20">{{org.title}}</p>
+                  <p>{{org.dsc}}</p>
+                </div>
+                <div class="org_lib">
+                  <router-link :to="'/goods/'+org.id"><img :src="org.imgSrc"  alt=""></router-link>
+                </div>
+              </div>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
      </div>
-     <div class="org_box">
-      <div class="org_li">
-        <div class="org_lit">
-          <p class="font20">木耳菜</p>
-          <p>叶子近似圆形，肥厚而黏滑</p>
-        </div>
-        <div class="org_lib">
-          <a href="goods.html"><img src="static/images/org_goods.jpg" height="214" width="348" alt=""></a>
-        </div>
-      </div>
-      <div class="org_li">
-        <div class="org_lit">
-          <p class="font20">木耳菜</p>
-          <p>叶子近似圆形，肥厚而黏滑</p>
-        </div>
-        <div class="org_lib">
-          <a href="goods.html"><img src="static/images/org_goods.jpg" height="214" width="348" alt=""></a>
-        </div>
-      </div>
-      <div class="org_li">
-        <div class="org_lit">
-          <p class="font20">木耳菜</p>
-          <p>叶子近似圆形，肥厚而黏滑</p>
-        </div>
-        <div class="org_lib">
-          <a href="goods.html"><img src="static/images/org_goods.jpg" height="214" width="348" alt=""></a>
-        </div>
-      </div>
-    </div>
+     
     <ul class="clearfix">
-      <li>
-        <a href="goods.html"><img src="static/images/org_goods1.jpg" height="200" width="200"  alt="" /></a>
+      <li v-for="hot in organic.hots">
+        <router-link :to="'/goods/'+hot.id"><img :src="hot.imgSrc" alt="" /></router-link>
         <div class="org_on"></div>
         <div class="org_onp">
-          <a href="goods.html">
-            <span class="org_f">豌豆角</span><br/>
-            <span>美味又可口</span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <a href="goods.html"><img src="static/images/org_goods1.jpg" height="200" width="200"  alt="" /></a>
-        <div class="org_on"></div>
-        <div class="org_onp">
-          <a href="goods.html">
-            <span class="org_f">豌豆角</span><br/>
-            <span>美味又可口</span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <a href="goods.html"><img src="static/images/org_goods1.jpg" height="200" width="200"  alt="" /></a>
-        <div class="org_on"></div>
-        <div class="org_onp">
-          <a href="goods.html">
-            <span class="org_f">豌豆角</span><br/>
-            <span>美味又可口</span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <a href="goods.html"><img src="static/images/org_goods1.jpg" height="200" width="200"  alt="" /></a>
-        <div class="org_on"></div>
-        <div class="org_onp">
-          <a href="goods.html">
-            <span class="org_f">豌豆角</span><br/>
-            <span>美味又可口</span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <a href="goods.html"><img src="static/images/org_goods1.jpg" height="200" width="200"  alt="" /></a>
-        <div class="org_on"></div>
-        <div class="org_onp">
-          <a href="goods.html">
-            <span class="org_f">豌豆角</span><br/>
-            <span>美味又可口</span>
-          </a>
+          <router-link :to="'/goods/'+hot.id">
+            <span class="org_f">{{hot.title}}</span><br/>
+            <span>{{hot.dsc}}</span>
+          </router-link>
         </div>
       </li>
     </ul>
@@ -184,7 +127,7 @@
        <a href="" class="marr20 f1"><</a>
        <span>多肉植物</span>
        <a href="" class="marl20 f1 ">></a>
-       <a href="" class="fright f2">更多></a>
+       <router-link to="/news" class="fright f2">更多></router-link>
      </div>
      <div class="goods_box">
       <div class="goodsIterm" v-for="item in garde">
@@ -198,7 +141,7 @@
             <div class="fleft">
               <a href="javascript:void(0)"  class="g_up" @click="add(item)">∧</a><span class="g_span">{{item.nums}}</span><a href="javascript:void(0)" class="g_down" @click="reduce(item)">∨</a>
             </div>
-            <div class="fright"><a href="flow.html" class="greey_a1">加入购物车</a></div>
+            <div class="fright"><a href="javascript:void(0);" class="greey_a1" @click="addCart(item)">加入购物车</a></div>
           </div>
         </div>
       </div>
@@ -235,9 +178,9 @@
     <div class="promise_main" >
       <h1 class="title promise_title">我们承诺</h1>
       <div class="promise_box">
-        <a href=""><img  src="static/images/shiping.png" height="183" width="126" alt="食品安全" /></a>
-        <a href=""><img src="static/images/green.png" height="181" width="125" alt="食品安全" /></a>
-        <a href=""><img src="static/images/zhijian.png" height="182" width="126" alt="食品安全" /></a>
+        <router-link to="/dynamicDetail/1"><img  src="static/images/shiping.png" height="183" width="126" alt="食品安全" /></router-link>
+        <router-link to="/dynamicDetail/2"><img src="static/images/green.png" height="181" width="125" alt="食品安全" /></router-link>
+        <router-link to="/dynamicDetail/3"><img src="static/images/zhijian.png" height="182" width="126" alt="食品安全" /></router-link>
       </div>
     </div>
   </div>
@@ -263,6 +206,7 @@ export default {
       banners: [],
       recommend: {},
       pick: [],
+      organic: [],
       garde: [],
       business: [],
       info: [],
@@ -284,73 +228,84 @@ export default {
       if(item.nums > 1) {
         item.nums--;
       }
+    },
+    addCart: function(goods) {
+      this.$utils.addCart(goods)
     }
   },
   created() {
 
-    this.$http.get('/static/data/home/cat.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/cat.json')
+    .then(res => {
         this.cats = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })  
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/banner.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/banner.json')
+    .then(res => {
         this.banners = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    }) 
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/new.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/new.json')
+    .then(res => {
         this.recommend = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })   
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/pick.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/pick.json')
+    .then(res => {
         this.pick = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })   
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/pick.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/pick.json')
+    .then(res => {
         this.garde = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })   
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/business.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/organic.json')
+    .then(res => {
+        this.organic = res.data.data;
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+    this.$utils.$http.get('/static/data/home/business.json')
+    .then(res => {
         this.business = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })  
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/business.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/business.json')
+    .then(res => {
         this.info = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })  
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    this.$http.get('/static/data/home/friendLink.json')
-    .then(res => {  
+    this.$utils.$http.get('/static/data/home/friendLink.json')
+    .then(res => {
         this.friendLink = res.data.data;
-    })  
-    .catch(err => {  
-        console.log(err)  
-    })  
+    })
+    .catch(err => {
+        console.log(err)
+    })
   }
 }
 </script>

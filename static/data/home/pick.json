@@ -4,7 +4,7 @@
 	"data": [
             {
                   "imgSrc": "static/images/goods.jpg",
-                  "id": 66,
+                  "id": 1,
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
@@ -13,7 +13,7 @@
             },
             {
                   "imgSrc": "static/images/goods.jpg",
-                  "id": 66,
+                  "id": 2,
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
@@ -22,7 +22,7 @@
             },
             {
                   "imgSrc": "static/images/goods.jpg",
-                  "id": 66,
+                  "id": 3,
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
@@ -31,7 +31,7 @@
             },
             {
                   "imgSrc": "static/images/goods.jpg",
-                  "id": 66,
+                  "id": 4,
                   "title": "重庆自驾游夏日清凉葡萄采摘",
                   "price": "￥30",
                   "priceN": "￥50",
