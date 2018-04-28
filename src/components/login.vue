@@ -4,17 +4,17 @@
 	  <div class="marcenter">
 	   <div class="login">
 	     <div class="login_form">
-	       <el-tabs @tab-click="handleClick" value="user">
+	       <el-tabs value="user">
 		    <el-tab-pane label="用户登录" name="user">
 		    	<el-form :model="userForm" :rules="userRules" ref="userForm">
-				  <el-form-item  prop="userName">
-				    <el-input v-model="userForm.userName"></el-input>
+				  <el-form-item  prop="name">
+				    <el-input v-model="userForm.name" placeholder="邮箱/用户名"></el-input>
 				  </el-form-item>
-				  <el-form-item  prop="userEmail">
-				    <el-input v-model="userForm.userEmail"></el-input>
+				  <el-form-item  prop="pwd">
+				    <el-input v-model="userForm.pwd" placeholder="密码"></el-input>
 				  </el-form-item>
 				  <el-form-item>
-				    <el-checkbox v-model="userForm.userRemember">记住用户名</el-checkbox>
+				    <el-checkbox v-model="userForm.remember">记住用户名</el-checkbox>
 				    <router-link class="fright forget" to="/getPwd">忘记密码？</router-link>
 				  </el-form-item>
 				  <el-form-item class="center">
@@ -23,20 +23,21 @@
 				</el-form>
 		    </el-tab-pane>
 		    <el-tab-pane label="管理员登录" name="admin">
-		    	<form action="" method="">
-		         <p><input type="text" value=""  class="login_text1" placeholder="邮箱/用户名" /></p>
-		         <p><input type="password" value="" placeholder="账户密码" class="login_text1"  id="log_pwd2"  /></p>
-		         <div class="rem_p">
-		           <router-link class="fright underline" to="/getPwd">忘记密码？</router-link>
-		           <div class="remembera">
-		             <label>
-		               <input type="checkbox" name="" value="" />
-		             </label>
-		             记住用户名
-		           </div>
-		         </div>
-		         <p class="center"><input type="submit" name="" value="登 录" class="green_a1" style="float:none" /></p>
-		       </form>
+		    	<el-form :model="adminForm" :rules="adminRules" ref="adminForm">
+				  <el-form-item  prop="name">
+				    <el-input v-model="adminForm.name" placeholder="邮箱/用户名"></el-input>
+				  </el-form-item>
+				  <el-form-item  prop="pwd">
+				    <el-input v-model="adminForm.pwd" placeholder="密码"></el-input>
+				  </el-form-item>
+				  <el-form-item>
+				    <el-checkbox v-model="adminForm.remember">记住用户名</el-checkbox>
+				    <router-link class="fright forget" to="/getPwd">忘记密码？</router-link>
+				  </el-form-item>
+				  <el-form-item class="center">
+				    <el-button type="primary" @click="submitForm('adminForm')">登录</el-button>
+				  </el-form-item>
+				</el-form>
 		    </el-tab-pane>
 		  </el-tabs>
 	     </div>
@@ -60,16 +61,32 @@ export default {
     return {
       	userForm: {
       		type: 'user',
-        	userName: '',
-        	userEmail: '',
-        	userRemember: false
+        	name: '',
+        	pwd: '',
+        	remember: false
         },
 		userRules: {
-		  userName: [
+		  name: [
 		    { required: true, message: '邮箱必填！', trigger: 'blur' },
 		    { min: 5, message: '长度不得小于 5个字符', trigger: 'blur'}
 		  ],
-		  userEmail: [
+		  pwd: [
+		    { required: true, message: '密码必填！', trigger: 'blur' },
+		    { min: 6, max: 20,message: '密码长度在 6 到 20 个字符', trigger: 'blur'}
+		  ]
+		},
+		adminForm: {
+      		type: 'admin',
+        	name: '',
+        	pwd: '',
+        	remember: false
+        },
+		adminRules: {
+		  name: [
+		    { required: true, message: '邮箱必填！', trigger: 'blur' },
+		    { min: 5, message: '长度不得小于 5个字符', trigger: 'blur'}
+		  ],
+		  pwd: [
 		    { required: true, message: '密码必填！', trigger: 'blur' },
 		    { min: 6, max: 20,message: '密码长度在 6 到 20 个字符', trigger: 'blur'}
 		  ]
@@ -77,20 +94,72 @@ export default {
     }
   },
   methods: {
-  	handleClick() {
-
+  	checkLogin(loginData, loginUsers) {
+  		var isLogin = false;
+  		var hasUser = false;
+  		var isPwdCorrect = false;
+  		for(var i = 0; i < loginUsers[loginData.type].length; i++) {
+  			if(loginUsers[loginData.type][i].name == loginData.name) {
+  				hasUser = true;
+  				if(loginUsers[loginData.type][i].password == loginData.pwd) {
+  					isPwdCorrect = true;
+  				}
+  				break;
+  			}
+  		}
+  		if(hasUser) {
+  			if(isPwdCorrect) {
+  				var goUrl = '/users';
+  				this.$utils.showTip('101', 'success');
+  				this.$utils.setLogin(true);
+  				if(loginData.type == 'admin') goUrl = '/enterprises'
+  				if(loginData.remember) {
+  					this.$utils.setCookies('user', loginData);
+  				}
+  				setTimeout(() => {
+  					this.$utils.hideTip();
+  					this.$router.push(goUrl);
+  				}, 1000)
+  			}else {
+  				this.$utils.showTip('-102', 'error', 'error');
+  			}
+  		}else {
+  			this.$utils.showTip('-101', 'error', 'error');
+  		}
   	},
 	submitForm(formName) {
 		this.$refs[formName].validate((valid) => {
 			if (valid) {
-				alert('submit!');
+				var loginUsers = this.$utils.getUsers();
+				if(loginUsers.length <= 0) {
+					this.$utils.$http.get('/static/data/login/login.json')
+				    .then(res => {
+				        loginUsers = res.data.data;
+				        this.$utils.setUser(loginUsers);
+				        this.checkLogin(this[formName], loginUsers)
+				    })
+				    .catch(err => {
+				       console.log('login error');
+				    })
+				}else {
+					this.checkLogin(this[formName], loginUsers);
+				}
 			} else {
 				console.log('error submit!!');
 				return false;
 			}
 		});
-	},
-    
+	}
+  },
+  created: function() {
+  	var user = this.$utils.getCookies('user');
+  	if(user) {
+  		if(user.type == 'user') {
+  			this.userForm = user;
+  		}else if(user.type == 'admin') {
+  			this.adminForm = user;
+  		}
+  	}
   }
 }
 </script>

@@ -1,0 +1,34 @@
+{
+	"status": 200,
+	"statusText": "成功",
+	"data": {
+            "user": [
+                  {
+                        "name": "lee999",
+                        "password": "aaaaaa"
+                  },
+                  {
+                        "name": "lee9999",
+                        "password": "qqqqqq"
+                  },
+                  {
+                        "name": "lee99999",
+                        "password": "wwwwww"
+                  }
+            ],
+            "admin": [
+                  {
+                        "name": "alee999",
+                        "password": "aaaaaa"
+                  },
+                  {
+                        "name": "alee9999",
+                        "password": "qqqqqq"
+                  },
+                  {
+                        "name": "alee99999",
+                        "password": "wwwwww"
+                  }
+            ]
+      }
+}

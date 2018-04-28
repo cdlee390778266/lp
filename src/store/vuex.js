@@ -13,8 +13,9 @@ const debug = process.env.NODE_ENV !== 'production';
 
 export default new Vuex.Store({
 	state: {
-		login: false,
-		carts: []
+		isLogin: false,
+		carts: [],
+		loginUsers: []
 	},
 	mutations: {
 		addToCart: function(state, payload) {
@@ -51,7 +52,18 @@ export default new Vuex.Store({
 			    message: '已将此商品从购物车中移除',
 			    type: 'success'
 			});
-		}
+		},
+		setUser: function(state, payload) {
+			if(payload.admin) {
+				state.loginUsers = payload;
+			}else {
+				delete payload.type;
+				state.loginUsers[payload.type].push(payload);
+			}
+		},
+		setLogin: function(state, payload) {
+			state.isLogin = payload;
+		},
 	},
 	actions: {
 		addToCart: function(context, payload) {
@@ -59,11 +71,23 @@ export default new Vuex.Store({
 		},
 		removeToCart: function(context, payload) {
 			context.commit('removeToCart', payload);
+		},
+		setUser: function(context, payload) {
+			context.commit('setUser', payload);
+		},
+		setLogin: function(context, payload) {
+			context.commit('setLogin', payload);
 		}
 	},
 	getters: {
 	    getCarts: state => {
 	      return state.carts;
+	    },
+	    getUsers: state => {
+	    	return state.loginUsers;
+	    },
+	    getLogin: state => {
+	    	return state.isLogin;
 	    }
 	}
 });
