@@ -121,10 +121,10 @@ export default {
   					this.$router.push(goUrl);
   				}, 1000)
   			}else {
-  				this.$utils.showTip('-102', 'error', 'error');
+  				this.$utils.showTip('-1011', 'error', 'error');
   			}
   		}else {
-  			this.$utils.showTip('-101', 'error', 'error');
+  			this.$utils.showTip('-1010', 'error', 'error');
   		}
   	},
 	submitForm(formName) {

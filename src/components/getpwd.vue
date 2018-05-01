@@ -34,6 +34,8 @@ export default {
       	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
         if (!reg.test(value)) {
           return callback(new Error('请输入正确的邮箱！'));
+        }else {
+          callback();
         }
       };
       return {
@@ -52,20 +54,18 @@ export default {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$utils.$http.get('/static/data/home/business.json')
-		    .then(res => {
-		        this.$utils.showTip('');
-		    })
-		    .catch(err => {
-		        console.log(err)
-		    })
+    		    .then(res => {
+    		        this.$utils.showTip('102', 'success', 'success');
+                this.$router.push('/reset');
+    		    })
+    		    .catch(err => {
+    		        console.log(err)
+    		    })
           } else {
             console.log('error submit!!');
             return false;
           }
         });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
       }
     }
   }

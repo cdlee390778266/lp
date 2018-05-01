@@ -4,6 +4,7 @@ import Home from '@/components/home'
 import Login from '@/components/login'
 import Register from '@/components/register'
 import GetPwd from '@/components/getpwd'
+import Reset from '@/components/reset'
 import News from '@/components/news'
 import Flow from '@/components/flow'
 import Goods from '@/components/goods'
@@ -53,6 +54,11 @@ export default new Router({
       path: '/getPwd',
       name: 'GetPwd',
       component: GetPwd
+    },
+    {
+      path: '/reset',
+      name: 'Reset',
+      component: Reset
     },
     {
       path: '/news',
