@@ -5,29 +5,35 @@
             "user": [
                   {
                         "name": "lee999",
-                        "password": "aaaaaa"
+                        "password": "aaaaaa",
+                        "email": "1@qq.com"
                   },
                   {
                         "name": "lee9999",
-                        "password": "qqqqqq"
+                        "password": "qqqqqq",
+                        "email": "2@qq.com"
                   },
                   {
                         "name": "lee99999",
-                        "password": "wwwwww"
+                        "password": "wwwwww",
+                        "email": "3@qq.com"
                   }
             ],
             "admin": [
                   {
                         "name": "alee999",
-                        "password": "aaaaaa"
+                        "password": "aaaaaa",
+                        "email": "4@qq.com"
                   },
                   {
                         "name": "alee9999",
-                        "password": "qqqqqq"
+                        "password": "qqqqqq",
+                        "email": "5@qq.com"
                   },
                   {
                         "name": "alee99999",
-                        "password": "wwwwww"
+                        "password": "wwwwww",
+                        "email": "6@qq.com"
                   }
             ]
       }

@@ -40,6 +40,9 @@ export default {
     return {
       
     }
+  },
+  created() {
+    console.log(this.$utils.getLogin());
   }
 }
 </script>

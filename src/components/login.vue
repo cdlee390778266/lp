@@ -22,7 +22,7 @@
 				  </el-form-item>
 				</el-form>
 		    </el-tab-pane>
-		    <el-tab-pane label="管理员登录" name="admin">
+		    <el-tab-pane label="企业用户登录" name="admin">
 		    	<el-form :model="adminForm" :rules="adminRules" ref="adminForm">
 				  <el-form-item  prop="name">
 				    <el-input v-model="adminForm.name" placeholder="邮箱/用户名"></el-input>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import CONFIG from '../service/config';
 export default {
   data () {
     return {
@@ -113,9 +114,8 @@ export default {
   				this.$utils.showTip('101', 'success');
   				this.$utils.setLogin(true);
   				if(loginData.type == 'admin') goUrl = '/enterprises'
-  				if(loginData.remember) {
-  					this.$utils.setCookies('user', loginData);
-  				}
+  				loginData.isLogin = true;
+  				this.$utils.setCookies(CONFIG.cookieKey, loginData);
   				setTimeout(() => {
   					this.$utils.hideTip();
   					this.$router.push(goUrl);
@@ -152,11 +152,11 @@ export default {
 	}
   },
   created: function() {
-  	var user = this.$utils.getCookies('user');
+  	var user = this.$utils.getCookies(CONFIG.cookieKey);
   	if(user) {
-  		if(user.type == 'user') {
+  		if(user.type == 'user' && user.remember) {
   			this.userForm = user;
-  		}else if(user.type == 'admin') {
+  		}else if(user.type == 'admin' && user.remember) {
   			this.adminForm = user;
   		}
   	}

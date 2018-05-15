@@ -29,10 +29,6 @@
         <a :href="banner.href"><img :src="banner.bannerImg"></a>
       </el-carousel-item>
     </el-carousel>
-    <div class="i_user" >
-      <p  class="borderb"><router-link to="/login"><img src="static/images/user.png" height="138" width="95" alt="个人中心" /></router-link></p>
-      <p><router-link to="/register"><img src="static/images/etp.png" height="137" width="95" alt="企业用户" /></router-link></p>
-    </div>
   </div>
   <div class="notice">
     <div class="notice_m">
@@ -211,6 +207,11 @@ export default {
       business: [],
       info: [],
       friendLink: []
+    }
+  },
+  computed: {
+    isLogin() {
+      return this.$utils.getLogin();
     }
   },
   methods: {

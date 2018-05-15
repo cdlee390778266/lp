@@ -3,7 +3,16 @@
     <div id="head">
 	    <div class="head_t">
 	      <div class="head_tm">
-	        您好，欢迎来到梁平 <span class="marl20">请</span><router-link to="/login" class="f2">登录</router-link> <router-link to="/register" class="f1 marl20">注册</router-link>
+	        您好，欢迎来到梁平 
+	        <template v-if="!isLogin">
+		        <span class="marl20">请</span>
+		        <router-link to="/login" class="f2">登录</router-link> 
+		        <router-link to="/register" class="f1 marl20">注册</router-link>
+		    </template>
+		    <template v-else>
+		    	<router-link :to="adminPath" class="f2 marl10">个人中心</router-link>
+		    	<a href="javascript:void(0);" class="exit marl10" @click="loginOut">退出</a>
+		    </template>
 	        <router-link to="/home" class="fright f1">客服服务</router-link>
 	      </div>
 	    </div>
@@ -33,10 +42,12 @@
 </template>
 
 <script>
+import CONFIG from '../../service/config';
 export default {
   name: 'LpHead',
   data () {
     return {
+      adminPath: '',
       checked: true,
       isShowSlide: false,
       slideVal: '',
@@ -48,6 +59,11 @@ export default {
       ]
     }
   },
+  computed: {
+  	isLogin() {
+  		return this.$utils.getLogin();
+  	}
+  },
   methods: {
   	slide() {
   		this.isShowSlide = !this.isShowSlide;
@@ -55,10 +71,25 @@ export default {
   	selectSlide(item) {
   		this.isShowSlide = false;
   		this.slideVal = item;
+  	},
+  	loginOut() {
+  		var user = this.$utils.getCookies(CONFIG.cookieKey);
+  		user.isLogin = false;
+  		this.$utils.setCookies(CONFIG.cookieKey, user);
+  		this.$utils.setLogin(false);
+  		this.$router.push('/home');
   	}
   },
   created() {
   	this.slideVal = this.slideOpts[0];
+  	var user = this.$utils.getCookies(CONFIG.cookieKey);
+  	if(user) {
+  		if(user.type == 'user') {
+  			this.adminPath = '/users';
+  		}else if(user.type == 'admin') {
+  			this.adminPath = '/enterprises';
+  		}
+  	}
   }
 }
 </script>

@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { Message } from 'element-ui';
+import CONFIG from '../service/config';
+import VueCookies from 'vue-cookies'
 
 Vue.use(Vuex);
 
@@ -10,10 +12,11 @@ const debug = process.env.NODE_ENV !== 'production';
 /**
  * export一个store的单例
  */
+var cookie = JSON.parse(VueCookies.get(CONFIG.cookieKey));
 
 export default new Vuex.Store({
 	state: {
-		isLogin: false,
+		isLogin: cookie ? cookie.isLogin : false ,
 		carts: [],
 		loginUsers: []
 	},
@@ -64,6 +67,9 @@ export default new Vuex.Store({
 		setLogin: function(state, payload) {
 			state.isLogin = payload;
 		},
+		setPwd: function(state, payload) {
+			state.loginUsers[payload.adminType][payload.index].password = payload.newPwd;
+		},
 	},
 	actions: {
 		addToCart: function(context, payload) {
@@ -77,16 +83,19 @@ export default new Vuex.Store({
 		},
 		setLogin: function(context, payload) {
 			context.commit('setLogin', payload);
+		},
+		setPwd: function(context, payload) {
+			context.commit('setPwd', payload);
 		}
 	},
 	getters: {
-	    getCarts: state => {
+	    getCarts(state) {
 	      return state.carts;
 	    },
-	    getUsers: state => {
+	    getUsers(state) {
 	    	return state.loginUsers;
 	    },
-	    getLogin: state => {
+	    getLogin(state) {
 	    	return state.isLogin;
 	    }
 	}

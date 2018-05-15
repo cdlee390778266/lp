@@ -42,6 +42,15 @@ utils.setLogin = function(bool) {
 	store.dispatch('setLogin', bool);
 }
 
+utils.getLogin = function() {
+	return store.getters.getLogin;
+}
+
+utils.setPwd = function(adminType, index, newPwd) {
+	if(!adminType || (typeof index == undefined) || !newPwd) return;
+	store.dispatch('setPwd', {adminType: adminType, index: index, newPwd: newPwd});
+}
+
 utils.getCookies = function(key) {
 	return JSON.parse(VueCookies.get(key));
 }

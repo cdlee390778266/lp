@@ -50,17 +50,44 @@ export default {
       };
     },
     methods: {
+      checkEmail(email, loginUsers) {
+        var isExistence = false;
+        //检查邮件是否已注册
+        if(email) {
+          bbq:
+          for(var key in loginUsers) {
+            for(var i = 0; i < loginUsers[key].length; i++) {
+              if(loginUsers[key][i].email == email) {
+                isExistence = true;
+                break bbq;
+              }
+            }
+          }
+        }
+        if(isExistence) {
+          this.$utils.showTip('102', 'success', 'success');
+          this.$router.push({ name: 'Reset', params: { email: email }})
+        }else {
+          this.$utils.showTip('-1020', 'error', 'error');
+        }
+      },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$utils.$http.get('/static/data/home/business.json')
-    		    .then(res => {
-    		        this.$utils.showTip('102', 'success', 'success');
-                this.$router.push('/reset');
-    		    })
-    		    .catch(err => {
-    		        console.log(err)
-    		    })
+            var loginUsers = this.$utils.getUsers();
+            if(loginUsers.length <= 0) {
+              this.$utils.$http.get('/static/data/login/login.json')
+                .then(res => {
+                    loginUsers = res.data.data;
+                    this.$utils.setUser(loginUsers);
+                    this.checkEmail(this.getForm.email, loginUsers);
+                })
+                .catch(err => {
+                   console.log('login error');
+                })
+            }else {
+              this.checkEmail(this.getForm.email, loginUsers);
+            }
           } else {
             console.log('error submit!!');
             return false;

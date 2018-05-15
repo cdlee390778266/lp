@@ -597,4 +597,11 @@ export default {
 	.login_form form {margin-top: 40px;}
 	.login_form .el-button--primary {display: inline-block;background: #b2cd27;color: #fff;font-size: 18px;border: none;cursor: pointer;width: 160px;height: 50px;text-align: center;border-radius: 4px;}
 	.forget {color: #6b6b6b; text-decoration: underline;}
+	.exit {
+		color: #fdb000;
+	}
+	.exit:hover {
+		color: #fdb000;
+		text-decoration: underline;
+	}
 </style>
