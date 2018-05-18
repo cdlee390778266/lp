@@ -60,7 +60,6 @@ export default new Vuex.Store({
 			if(payload.admin) {
 				state.loginUsers = payload;
 			}else {
-				delete payload.type;
 				state.loginUsers[payload.type].push(payload);
 			}
 		},

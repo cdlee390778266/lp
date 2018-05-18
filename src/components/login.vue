@@ -68,7 +68,7 @@ export default {
         },
 		userRules: {
 		  name: [
-		    { required: true, message: '邮箱必填！', trigger: 'blur' },
+		    { required: true, message: '用户名必填！', trigger: 'blur' },
 		    { min: 5, message: '长度不得小于 5个字符', trigger: 'blur'}
 		  ],
 		  pwd: [
@@ -84,7 +84,7 @@ export default {
         },
 		adminRules: {
 		  name: [
-		    { required: true, message: '邮箱必填！', trigger: 'blur' },
+		    { required: true, message: '用户名必填！', trigger: 'blur' },
 		    { min: 5, message: '长度不得小于 5个字符', trigger: 'blur'}
 		  ],
 		  pwd: [

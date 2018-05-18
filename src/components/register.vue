@@ -4,20 +4,20 @@
 	  <div class="marcenter">
 	   <div class="login">
 	     <div class="login_form">
-	       <el-tabs value="user">
+	       <el-tabs value="user"  @tab-click="selectForm">
 		    <el-tab-pane label="用户注册" name="user">
 		    	<el-form :model="userForm" :rules="userRules" ref="userForm">
 				  <el-form-item  prop="name">
 				    <el-input v-model="userForm.name" placeholder="用户名"></el-input>
 				  </el-form-item>
-				  <el-form-item  prop="name">
-				    <el-input v-model="userForm.name" placeholder="邮箱"></el-input>
+				  <el-form-item  prop="email">
+				    <el-input v-model="userForm.email" placeholder="邮箱"></el-input>
 				  </el-form-item>
 				  <el-form-item  prop="pwd">
 				    <el-input v-model="userForm.pwd" placeholder="密码"></el-input>
 				  </el-form-item>
-				  <el-form-item  prop="pwd">
-				    <el-input v-model="userForm.pwd" placeholder="重复密码"></el-input>
+				  <el-form-item  prop="cpwd">
+				    <el-input v-model="userForm.cpwd" placeholder="重复密码"></el-input>
 				  </el-form-item>
 				  <el-form-item class="center">
 				    <el-button type="primary" @click="submitForm('userForm')">登录</el-button>
@@ -29,14 +29,14 @@
 				  <el-form-item  prop="name">
 				    <el-input v-model="adminForm.name" placeholder="用户名"></el-input>
 				  </el-form-item>
-				  <el-form-item  prop="name">
-				    <el-input v-model="adminForm.name" placeholder="邮箱"></el-input>
+				  <el-form-item  prop="email">
+				    <el-input v-model="adminForm.email" placeholder="邮箱"></el-input>
 				  </el-form-item>
 				  <el-form-item  prop="pwd">
 				    <el-input v-model="adminForm.pwd" placeholder="密码"></el-input>
 				  </el-form-item>
-				  <el-form-item  prop="pwd">
-				    <el-input v-model="adminForm.pwd" placeholder="重复密码"></el-input>
+				  <el-form-item  prop="cpwd">
+				    <el-input v-model="adminForm.cpwd" placeholder="重复密码"></el-input>
 				  </el-form-item>
 				  <el-form-item class="center">
 				    <el-button type="primary" @click="submitForm('adminForm')">登录</el-button>
@@ -63,72 +63,94 @@
 import CONFIG from '../service/config';
 export default {
   data () {
+  	var checkEmail = (rule, value, callback) => {
+	  var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+	  if (!reg.test(value)) {
+	    return callback(new Error('请输入正确的邮箱！'));
+	  }else {
+	    callback();
+	  }
+	};
+
+    var validateConfirmPass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'));
+
+        } else if (value !== this[this.selectedForm].pwd) {
+          callback(new Error('两次输入密码不一致!'));
+        } else {
+          callback();
+        }
+      };
+
     return {
+    	selectedForm: 'userForm',
       	userForm: {
       		type: 'user',
         	name: '',
+        	email: '',
         	pwd: '',
-        	remember: false
+        	cpwd: ''
         },
 		userRules: {
 		  name: [
-		    { required: true, message: '邮箱必填！', trigger: 'blur' },
+		    { required: true, message: '用户名必填！', trigger: 'blur' },
 		    { min: 5, message: '长度不得小于 5个字符', trigger: 'blur'}
 		  ],
+		  email: [
+            { validator: checkEmail, trigger: 'blur' }
+          ],
 		  pwd: [
 		    { required: true, message: '密码必填！', trigger: 'blur' },
 		    { min: 6, max: 20,message: '密码长度在 6 到 20 个字符', trigger: 'blur'}
-		  ]
+		  ],
+		  cpwd: { validator: validateConfirmPass, trigger: 'blur' }
 		},
 		adminForm: {
       		type: 'admin',
         	name: '',
+        	email: '',
         	pwd: '',
-        	remember: false
+        	cpwd: ''
         },
 		adminRules: {
 		  name: [
-		    { required: true, message: '邮箱必填！', trigger: 'blur' },
+		    { required: true, message: '用户名必填！', trigger: 'blur' },
 		    { min: 5, message: '长度不得小于 5个字符', trigger: 'blur'}
 		  ],
+		  email: [
+            { validator: checkEmail, trigger: 'blur' }
+          ],
 		  pwd: [
 		    { required: true, message: '密码必填！', trigger: 'blur' },
 		    { min: 6, max: 20,message: '密码长度在 6 到 20 个字符', trigger: 'blur'}
-		  ]
+		  ],
+		  cpwd: { validator: validateConfirmPass, trigger: 'blur' }
 		}
     }
   },
   methods: {
-  	checkLogin(loginData, loginUsers) {
-  		var isLogin = false;
+  	selectForm(tab, event) {
+        if(tab.name == 'user') {
+        	this.selectedForm = 'userForm';
+        }else {
+        	this.selectedForm = 'adminForm';
+        }
+    },
+  	checkRegister(registerData, loginUsers) {
   		var hasUser = false;
-  		var isPwdCorrect = false;
-  		for(var i = 0; i < loginUsers[loginData.type].length; i++) {
-  			if(loginUsers[loginData.type][i].name == loginData.name) {
+  		for(var i = 0; i < loginUsers[registerData.type].length; i++) {
+  			if(loginUsers[registerData.type][i].email == registerData.email) {
   				hasUser = true;
-  				if(loginUsers[loginData.type][i].password == loginData.pwd) {
-  					isPwdCorrect = true;
-  				}
   				break;
   			}
   		}
-  		if(hasUser) {
-  			if(isPwdCorrect) {
-  				var goUrl = '/users';
-  				this.$utils.showTip('101', 'success');
-  				this.$utils.setLogin(true);
-  				if(loginData.type == 'admin') goUrl = '/enterprises'
-  				loginData.isLogin = true;
-  				this.$utils.setCookies(CONFIG.cookieKey, loginData);
-  				setTimeout(() => {
-  					this.$utils.hideTip();
-  					this.$router.push(goUrl);
-  				}, 1000)
-  			}else {
-  				this.$utils.showTip('-1011', 'error', 'error');
-  			}
+  		if(!hasUser) {
+			var goUrl = '/users';
+			this.$utils.showTip('104', 'success');
+			this.$utils.setUser(registerData);
   		}else {
-  			this.$utils.showTip('-1010', 'error', 'error');
+  			this.$utils.showTip('-1040', 'error', 'error');
   		}
   	},
 	submitForm(formName) {
@@ -140,13 +162,13 @@ export default {
 				    .then(res => {
 				        loginUsers = res.data.data;
 				        this.$utils.setUser(loginUsers);
-				        this.checkLogin(this[formName], loginUsers)
+				        this.checkRegister(this[formName], loginUsers)
 				    })
 				    .catch(err => {
 				       console.log('login error');
 				    })
 				}else {
-					this.checkLogin(this[formName], loginUsers);
+					this.checkRegister(this[formName], loginUsers);
 				}
 			} else {
 				console.log('error submit!!');
